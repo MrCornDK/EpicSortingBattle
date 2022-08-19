@@ -21,37 +21,50 @@ import random, copy
 #     print('Sorteret efter {} forsøg'.format(attempts))
 #     return items
 
-
 def insertionSort(items):
-    # Vi laver et for loop for hver værdi i listen
+    #vi laver et for loop der med en range af længden af arrayet
     for i in range(len(items)):
-        # For at ikke løbe in i fejl tjekker vi at det ikke er den første element i listen
-        if not i == 0:
-            # så laver vi et nyt for loop som kører ned af arrayet fra det punkt (i) vi er for at se om der skal byttes værdi
-            for c in range(i):
-                # For at ikke løbe in i fejl tjekker vi at det ikke er den første element i listen
-                if not i - c == 0:
-                    # så tjekker vi om den forrige værdi er større end nuværende
-                    #i-c fordi så går vi mod starten af arrayet så vi tjekker om ændret værdi er lavere en andre
-                    if items[(i - c) - 1] > items[(i - c)]:
-                        # vis sandt gemmer vi forrige værdi i switch
-                        switch = items[(i - c) - 1]
-                        # Og sætter forrige element til nuværende værdi
-                        items[(i - c) - 1] = items[(i - c)]
-                        # Og sætter nuværende element til switch(forige værdi)
-                        items[(i - c)] = switch
-                    else:
-                        #vis der ikke skal byttes noget stopper vi loopet og går videre i listen mod slutningen
-                        break
+        # vi sætter nuværende værdi til  current
+        current = items[i]
+
+        # så laver vi en værdi for forrige index som bruges til at køre ned af listen mod starten
+        f_i = i - 1
+        # Så laver vi et loop som gælder vis forrige index ikke er større eller nul for at ikke få fejl og at forrige værdi er er stører end nuværende værdi
+        while f_i >= 0 and current < items[f_i]:
+            # så sætter vi nuværende  til forrige
+            items[f_i+1] = items[f_i]
+            # og så nedsætter vi forrige index med 1 og så kørrer loopet igen vis at f_i >= 0 and current < items[f_i] er true
+            f_i -= 1
+        # så sætter vi f_i + 1 til current for at færdig gøre switchne (fordi loopet bliver ikke kørst da f_1 er mindre end nul)
+        items[f_i + 1] = current
+    return items
+
+
+
+
+def bubbleSort(items):
+    i = 0
+    while i < len(items)-1:
+        j = 0
+        while j < len(items)-i-1:
+            if items[j] > items[j+1]:
+                current = items[j]
+                items[j] = items[j+1]
+                items[j+1] = current
+            j += 1
+        i += 1
     return items
 
 if __name__ == '__main__':
+    b = [2, 1, 3, 8, 4, 5, 7, 9, 6, 0]
+    print(b)
+    print(bubbleSort(b))
     l = list(range(0, 10))
     lb = l.copy()
     for i in range(50):
         random.shuffle(lb)
         ## Kald den funktion, du vil teste
-        ls = insertionSort(l)
+        ls = bubbleSort(l)
         ## Kald den funktion, du vil teste
         if ls != l:
             print('Fejl! Algoritmen kan ikke sortere.')
