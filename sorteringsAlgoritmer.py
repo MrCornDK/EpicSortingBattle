@@ -39,8 +39,16 @@ def insertionSort(items):
         items[f_i + 1] = current
     return items
 
+def SelectionSort(itemsv2):
+    for i in range(len(l)-1):
+        min_index = i
 
+        for j in range(i+1, len(l)-1):
+            if l[j] < l[min_index]:
+                min_index = j
 
+        l[i], l[min_index] = l[min_index], l[i]
+    return itemsv2
 
 def bubbleSort(items):
     i = 0
