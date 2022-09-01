@@ -56,6 +56,9 @@ def SelectionSort(itemsv2):
         l[i], l[min_index] = l[min_index], l[i]
     return itemsv2
 
+def MergeSort(ItemsM):
+    
+
 if __name__ == '__main__':
     l = list(range(0, 10))
     lb = l.copy()
