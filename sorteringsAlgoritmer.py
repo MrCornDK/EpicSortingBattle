@@ -21,15 +21,25 @@ def insertionSort(items):
 
 
 def SelectionSort(itemsv2):
+    # læs længden af vores Array i "i", og array i arr
     for i in range(len(itemsv2)-1):
+        # Set i = 0
+        # Set i til min-index
         min_index = i
-
+        # spørg om i er mindre end j-1
         for j in range(i+1, len( itemsv2)-1):
+            # set j til i + 1
             if  itemsv2[j] <  itemsv2[min_index]:
+                # Er j mindre end i?
+                # er arr(i) mindre end arr(min-index)
                 min_index = j
+                # Set j tio min-index
 
         itemsv2[i],  itemsv2[min_index] =  itemsv2[min_index],  itemsv2[i]
+        # Byt arr[min-index] med arr[i]
+
     return itemsv2
+    # Returner itemsv2
 
 
 def bubbleSort(items):
@@ -52,7 +62,7 @@ if __name__ == '__main__':
     for i in range(50):
         random.shuffle(lb)
         ## Kald den funktion, du vil teste
-        ls = bubbleSort(l)
+        ls = SelectionSort(l)
         ## Kald den funktion, du vil teste
         if ls != l:
             print('Fejl! Algoritmen kan ikke sortere.')
