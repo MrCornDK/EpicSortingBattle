@@ -39,7 +39,7 @@ def SelectionSort(itemsv2):
         # Byt arr[min-index] med arr[i]
 
     return itemsv2
-    # Returner itemsv2
+    # Returner itemsv2 yes
 
 
 def bubbleSort(items):
