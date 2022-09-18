@@ -20,6 +20,8 @@ def insertionSort(items):
     return items
 
 
+
+
 def SelectionSort(itemsv2):
     # læs længden af vores Array i "i", og array i arr
     for i in range(len(itemsv2)-1):
@@ -42,27 +44,13 @@ def SelectionSort(itemsv2):
     # Returner itemsv2 yes
 
 
-def bubbleSort(items):
-    i = 0
-    while i < len(items)-1:
-        j = 0
-        while j < len(items)-i-1:
-            if items[j] > items[j+1]:
-                current = items[j]
-                items[j] = items[j+1]
-                items[j+1] = current
-            j += 1
-        i += 1
-    return items
-
-
 if __name__ == '__main__':
     l = list(range(0, 10))
     lb = l.copy()
     for i in range(50):
         random.shuffle(lb)
         ## Kald den funktion, du vil teste
-        ls = SelectionSort(l)
+        ls = bubbleSort(l)
         ## Kald den funktion, du vil teste
         if ls != l:
             print('Fejl! Algoritmen kan ikke sortere.')
